@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Petzify</string>
+    <string name="title_home">Home</string>
+    <string name="title_perfil">Perfil</string>
+    <string name="title_posteos">Posteos</string>
+    <string name="title_buscador">Buscador</string>
+    <string name="title_notificaciones">Notificaciones</string>
+
+    <string name="posteos">¿En que estas pensando?</string>
+    <string name="Registro">Registrarse</string>
+    <string name="User">Usuario</string>
+    <string name="Institution">Institucion</string>
+    <string name="Shop">Negocio</string>
+    <string name="tip">Tipo de cuenta</string>
+    <string name="linea">---------------</string>
+    <string name="IrLogin">Ya tengo cuenta</string>
+    <string name="IrRegister">Registrarme</string>
+    <string name="btnLogin">Login</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
