@@ -9,6 +9,7 @@
     android:background="@color/white">
 
    <EditText
+       android:id="@+id/buscador"
        android:layout_width="0dp"
        android:layout_height="50dp"
        app:layout_constraintEnd_toEndOf="parent"
@@ -20,5 +21,16 @@
        android:textColor="@color/black"
        android:textColorHint="@color/grey"
        android:paddingStart="10dp"/>
+
+   <androidx.appcompat.widget.AppCompatButton
+       android:layout_width="350dp"
+       android:layout_height="50dp"
+       app:layout_constraintBottom_toBottomOf="parent"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toBottomOf="@id/buscador"
+       app:layout_constraintVertical_bias="0.0"
+       android:layout_marginTop="20dp"
+       android:text="Publicidad"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

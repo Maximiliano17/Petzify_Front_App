@@ -199,43 +199,42 @@
         app:layout_constraintBottom_toTopOf="@id/glmidH"
         android:layout_marginHorizontal="30dp"/>
 
-    <ImageButton
-        android:id="@+id/startArrow"
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/irposteos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/glmidH"
-        app:layout_constraintBottom_toBottomOf="@id/glmascotas"
+        app:layout_constraintTop_toBottomOf="@id/lineaDatosBottom"
+        app:layout_constraintBottom_toTopOf="@id/glmascotas"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginStart="20dp"
-        android:background="@color/white"
-        android:src="@drawable/arrow_start"
-        app:tint="@color/green"/>
+        app:layout_constraintEnd_toStartOf="@id/irmascotas"
+        android:text="@string/irposteos"
+        android:background="@color/greenoscuro"
+        android:textColor="@color/white"
+        android:paddingHorizontal="10dp"/>
 
-        <ImageView
-            android:id="@+id/cvmascotas"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            app:layout_constraintTop_toBottomOf="@id/lineaDatosBottom"
-            app:layout_constraintBottom_toTopOf="@id/glmascotas"
-            app:layout_constraintStart_toEndOf="@+id/startArrow"
-            app:layout_constraintEnd_toStartOf="@id/endArrow"
-            app:layout_constraintHorizontal_bias="0.0"
-            android:src="@drawable/ic_posteo"
-            android:layout_margin="10dp"
-            app:tint="@color/grey"
-            android:background="@color/white"/>
-
-    <ImageButton
-        android:id="@+id/endArrow"
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/irmascotas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/glmidH"
-        app:layout_constraintBottom_toBottomOf="@id/glmascotas"
+        app:layout_constraintTop_toBottomOf="@id/lineaDatosBottom"
+        app:layout_constraintBottom_toTopOf="@id/glmascotas"
+        app:layout_constraintStart_toEndOf="@id/irposteos"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginEnd="20dp"
-        android:background="@color/white"
-        android:src="@drawable/arrow_end"
-        app:tint="@color/green"/>
+        android:text="@string/irmascotas"
+        android:background="@color/greenoscuro"
+        android:textColor="@color/white"
+        android:paddingHorizontal="10dp"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/glmascotas"
+        app:layout_constraintVertical_bias="0.3"
+        android:text="Publicidad"/>
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/glmascotas"
