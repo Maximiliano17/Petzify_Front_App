@@ -5,6 +5,8 @@ Petzify es una red social dedicada a los amantes de los animales domésticos, of
 
 **Objetivo Principal:** Contribuir a reducir la cantidad de animales perdidos en Argentina mediante metodologías de reporte para mascotas extraviadas y el uso de inteligencia artificial para identificación.
 
+**Nota: Este es un prototipo en desarrollo. La versión anterior se encuentra en otro repositorio privado.**
+
 ## Funcionalidades Clave
 
 1. **Publicaciones de Experiencias:** Los usuarios pueden compartir sus experiencias con sus mascotas, fotos, y más en un entorno dedicado.
@@ -19,10 +21,9 @@ Petzify es una red social dedicada a los amantes de los animales domésticos, of
 
 ## Tecnologías Utilizadas 💻
 
-- **Frontend: ReactJS**
+- **Frontend (Android): Kotlin**
 - **Backend: NodeJS**
-- **Inteligencia Artificial: Python, Tensor Flow**
-- **Base de Datos: [Incluir el nombre de la base de datos utilizada]**
+- **Base de Datos: Firebase**
 
 ## Uso y Contribuciones 🚀
 
@@ -31,4 +32,5 @@ Petzify es una plataforma integral que fomenta la interacción y el bienestar de
 Si tienes sugerencias de mejora, encuentras problemas, o deseas contribuir al desarrollo, ¡eres bienvenido!
 
 Agradecemos tu interés en Petzify y tu compromiso con el bienestar de los animales domésticos. ¡Gracias por formar parte de nuestra comunidad!
+
 
