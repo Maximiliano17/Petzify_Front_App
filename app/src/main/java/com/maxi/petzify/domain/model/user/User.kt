@@ -1,4 +1,4 @@
-package com.maxi.petzify.Api.Models
+package com.maxi.petzify.domain.model.user
 
 data class User(
     val username: String,

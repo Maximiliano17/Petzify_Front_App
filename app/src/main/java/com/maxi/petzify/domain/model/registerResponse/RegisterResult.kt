@@ -1,9 +1,8 @@
-package com.maxi.petzify.Api.Models.Register
+package com.maxi.petzify.domain.model.registerResponse
 
-data class Result(
+data class RegisterResult(
     val accepted: List<String>,
     val ehlo: List<String>,
-    val envelope: Envelope,
     val envelopeTime: Int,
     val messageId: String,
     val messageSize: Int,

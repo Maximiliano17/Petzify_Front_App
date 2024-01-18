@@ -1,6 +1,9 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("kotlin-kapt")//injexion de dependencias con dagger, parte 1
+    id("com.google.dagger.hilt.android")//injexion de dependencias con dagger, parte 2
+    id("androidx.navigation.safeargs.kotlin")//navegacion segura entre fragments
 }
 
 android {
@@ -18,12 +21,19 @@ android {
     }
 
     buildTypes {
-        release {
+        getByName("release"){
             isMinifyEnabled = false
+            isDebuggable = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            buildConfigField("String", "BASE_URL", "\"http://10.0.2.2:5000/\"")
+        }
+
+        getByName("debug"){
+            isDebuggable = true
+            buildConfigField("String", "BASE_URL", "\"http://10.0.2.2:5000/\"")
         }
     }
     compileOptions {
@@ -35,6 +45,7 @@ android {
     }
     buildFeatures {
         viewBinding = true
+        buildConfig = true
     }
 }
 
@@ -49,13 +60,22 @@ dependencies {
     implementation("androidx.navigation:navigation-fragment-ktx:2.7.6")
     implementation("androidx.navigation:navigation-ui-ktx:2.7.6")
     implementation("androidx.core:core-splashscreen:1.0.1")
-    implementation("com.squareup.retrofit2:retrofit:2.9.0")
-    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 
-    implementation("com.squareup.retrofit2:retrofit:2.9.0")
-    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    val retrofitVersion = "2.9.0"
+    val daggerVersion = "2.48"
+    //retrofit
+    implementation("com.squareup.retrofit2:retrofit:${retrofitVersion}")
+    implementation("com.squareup.retrofit2:converter-gson:${retrofitVersion}")
+
+    //interceptor
+    implementation("com.squareup.okhttp3:logging-interceptor:4.3.1")
+
+
+    //injexion de dependencias con dagger
+    implementation("com.google.dagger:hilt-android:${daggerVersion}")
+    kapt("com.google.dagger:hilt-compiler:${daggerVersion}")
 
 }

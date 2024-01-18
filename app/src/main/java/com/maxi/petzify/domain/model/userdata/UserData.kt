@@ -1,6 +1,5 @@
-package com.maxi.petzify.Api.Models.Login
-
-data class User(
+package com.maxi.petzify.domain.model.userdata
+data class UserData(
     val _id: String,
     val banner: String,
     val createdAt: String,
