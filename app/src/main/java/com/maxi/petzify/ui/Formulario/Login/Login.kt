@@ -1,4 +1,4 @@
-package com.maxi.petzify.ui.login
+package com.maxi.petzify.ui.Formulario.Login
 
 import android.content.Intent
 import android.os.Bundle
@@ -10,8 +10,9 @@ import com.maxi.petzify.MainActivity
 import com.maxi.petzify.R
 import com.maxi.petzify.databinding.ActivityLoginBinding
 import com.maxi.petzify.domain.model.LoginDataRequired
-import com.maxi.petzify.domain.model.userdata.UserData
 import com.maxi.petzify.domain.usecase.LoginUseCase
+import com.maxi.petzify.ui.Formulario.Register.Register
+import com.maxi.petzify.ui.core.editTextVerify.VerifyEditText
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -42,36 +43,46 @@ class Login : AppCompatActivity() {
     }
 
     private fun initListeners() {
-        binding.btnLogin.setOnClickListener { login() }
+        binding.btnLogin.setOnClickListener { verifyEditTextUserData() }
         binding.btnSinCuenta.setOnClickListener { NavigatorRegister() }
     }
 
-    private fun login() {
-        lifecycleScope.launch {
-            val response = withContext(Dispatchers.IO) {
-                loginUseCase(
-                    LoginDataRequired(
-                        binding.etUser.text.toString(),
-                        null,
-                        binding.etPassword.text.toString(),
-                        null
-                    )
+    private fun verifyEditTextUserData() {
+        val allHaveText = VerifyEditText.haveContent(
+            listOf(
+                binding.etUser,
+                binding.etPassword
+            )
+        )
+        if (allHaveText) {
+            login(
+                LoginDataRequired(
+                    binding.etUser.text.toString(),
+                    null,
+                    binding.etPassword.text.toString(),
+                    null
                 )
-            }
-            if (response != null) {
-                NavigatorHome(response)
-            } else {
-                Toast.makeText(this@Login, "Error al consultar la api", Toast.LENGTH_SHORT).show()
-            }
+            )
+        } else {
+            Toast.makeText(this@Login, "Error, completar los campos", Toast.LENGTH_SHORT).show()
         }
 
     }
 
-    private fun NavigatorHome(response: UserData) {
+    private fun login(userData: LoginDataRequired) {
+        lifecycleScope.launch {
+            val response = withContext(Dispatchers.IO) { loginUseCase(userData) }
+            if (response != null) {
+                NavigatorHome(response.token)
+            } else {
+                Toast.makeText(this@Login, "Error al consultar la api", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+    private fun NavigatorHome(token: String) {
         val intent = Intent(this, MainActivity::class.java)
-
-        //intent.putExtra("texto", texto)
-
+        intent.putExtra("token", token)
         startActivity(intent)
     }
 

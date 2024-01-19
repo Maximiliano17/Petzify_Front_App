@@ -1,27 +1,12 @@
 package com.maxi.petzify.data.network.response.Login
 
-import com.maxi.petzify.domain.model.userdata.UserData
+import com.google.gson.annotations.SerializedName
+import com.maxi.petzify.domain.model.token.Token
 
 data class LoginResponse(
-    val status: Int,
-    val token: String,
-    val user: User
+    @SerializedName("token")val auth_token: String,
+    @SerializedName("status")val status: Int,
+    @SerializedName("message")val message: String,
 ){
-    fun toDomain():UserData{
-        return UserData(
-        _id = user._id,
-        banner = user.banner,
-        createdAt = user.createdAt,
-        email = user.email,
-        followers = user.followers,
-        following = user.following,
-        isVerified = user.isVerified,
-        likes = user.likes,
-        password = user.password,
-        profile = user.profile,
-        role = user.role,
-        updatedAt = user.updatedAt,
-        username = user.username
-        )
-    }
+    fun toDomain() = Token(auth_token)
 }

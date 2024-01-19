@@ -1,4 +1,4 @@
-package com.maxi.petzify.data.network.response.Register
+package com.maxi.petzify.data.network.response.ReciveCode
 
 import com.google.gson.annotations.SerializedName
 

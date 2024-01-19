@@ -1,5 +1,8 @@
-package com.maxi.petzify.domain.model.userdata
-data class UserData(
+package com.maxi.petzify.domain.model.userData
+
+import com.google.gson.annotations.SerializedName
+
+data class UserData (
     val _id: String,
     val banner: String,
     val createdAt: String,

@@ -1,4 +1,4 @@
-package com.maxi.petzify.domain.model.user
+package com.maxi.petzify.domain.model.RegisterResult
 
 data class User(
     val username: String,
