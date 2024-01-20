@@ -2,6 +2,7 @@ package com.maxi.petzify.ui.Formulario.Register
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.WindowManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -12,9 +13,10 @@ import com.maxi.petzify.R
 import com.maxi.petzify.databinding.ActivityRegisterBinding
 import com.maxi.petzify.domain.model.LoginDataRequired
 import com.maxi.petzify.domain.model.code.Code
+import com.maxi.petzify.domain.usecase.GetLocalTokenUseCase
 import com.maxi.petzify.domain.usecase.ReciveCodeUseCase
 import com.maxi.petzify.domain.usecase.RegisterUseCase
-import com.maxi.petzify.ui.core.editTextVerify.VerifyEditText
+import com.maxi.petzify.ui.core.VerifyEditText
 import com.maxi.petzify.ui.Formulario.Login.Login
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
@@ -32,6 +34,9 @@ class Register : AppCompatActivity() {
     @Inject
     lateinit var reciveCodeUseCase: ReciveCodeUseCase
 
+    @Inject
+    lateinit var getLocalTokenUseCase: GetLocalTokenUseCase
+
     override fun onCreate(savedInstanceState: Bundle?) {
         val screenSplash = installSplashScreen()
         super.onCreate(savedInstanceState)
@@ -47,7 +52,20 @@ class Register : AppCompatActivity() {
 
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        initListeners()
+
+        chekUserLogged()
+
+    }
+
+
+    private fun chekUserLogged() {
+        val token = getLocalTokenUseCase()
+        if (token?.isNotEmpty() == true){
+            NavigatorHome(token)
+        }
+        else{
+            initListeners()
+        }
     }
 
     private fun initListeners() {
@@ -115,9 +133,12 @@ class Register : AppCompatActivity() {
     }
 
 
-    private fun NavigatorHome(response: Code) =
-        startActivity(Intent(this, MainActivity::class.java))
-
+    private fun NavigatorHome(token: String) {
+        Log.i("token", token)
+        val intent = Intent(this, MainActivity::class.java)
+        //intent.putExtra("token", token)
+        startActivity(intent)
+    }
     private fun NavigatorLogin() = startActivity(Intent(this, Login::class.java))
 
 }

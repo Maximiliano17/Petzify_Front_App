@@ -2,9 +2,11 @@ package com.maxi.petzify.data.network
 
 import com.maxi.petzify.data.network.response.Login.LoginResponse
 import com.maxi.petzify.data.network.response.ReciveCode.ReciveCodeResponse
+import com.maxi.petzify.data.network.response.UserDataResponse.UserDataResponse
 import com.maxi.petzify.domain.model.LoginDataRequired
 import retrofit2.Response
 import retrofit2.http.Body
+import retrofit2.http.GET
 import retrofit2.http.POST
 
 interface GetUserApiService {
@@ -15,5 +17,8 @@ interface GetUserApiService {
     suspend fun reciveCode(@Body user: LoginDataRequired):ReciveCodeResponse
     @POST("api/v1/auth/signup")
     suspend fun register(@Body user:LoginDataRequired):ReciveCodeResponse
+
+    @GET("api/v1/auth/profile")
+    suspend fun getUserdata():UserDataResponse
 
 }

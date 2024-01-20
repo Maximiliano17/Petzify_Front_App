@@ -1,8 +1,11 @@
 package com.maxi.petzify.data.network
 
 import com.maxi.petzify.BuildConfig.BASE_URL
-import com.maxi.petzify.data.UserRepositoryImplementation
+import com.maxi.petzify.data.repository.UserRepositoryImplementation
 import com.maxi.petzify.data.core.interceptor.AuthInterceptor
+import com.maxi.petzify.data.core.interceptor.TokenManager
+import com.maxi.petzify.data.repository.LocalRepositoryImplementation
+import com.maxi.petzify.domain.LocalRepository
 import com.maxi.petzify.domain.UserRepository
 import dagger.Module
 import dagger.Provides
@@ -51,5 +54,10 @@ object NetworkModule {
     @Provides
     fun provideRepository(apiService: GetUserApiService):UserRepository{
         return UserRepositoryImplementation(apiService)
+    }
+
+    @Provides
+    fun provideLocalRepository():LocalRepository{
+        return LocalRepositoryImplementation(TokenManager())
     }
 }

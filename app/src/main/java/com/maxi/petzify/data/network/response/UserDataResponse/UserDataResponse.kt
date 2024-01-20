@@ -16,7 +16,8 @@ data class UserDataResponse(
     @SerializedName("profile") val profile: String,
     @SerializedName("role") val role: String,
     @SerializedName("updatedAt") val updatedAt: String,
-    @SerializedName("username") val username: String
+    @SerializedName("username") val username: String,
+    @SerializedName("message") val message:String
 ) {
     fun toDomain(): UserData {
         return UserData(

@@ -1,7 +1,6 @@
-package com.maxi.petzify.ui.core.editTextVerify
+package com.maxi.petzify.ui.core
 
 import android.widget.EditText
-import javax.inject.Inject
 
 object VerifyEditText {
     fun haveContent(editTexts:List<EditText>) = editTexts.all { it.text?.isNotEmpty() ?: false }

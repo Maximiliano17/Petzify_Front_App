@@ -10,9 +10,10 @@ import com.maxi.petzify.MainActivity
 import com.maxi.petzify.R
 import com.maxi.petzify.databinding.ActivityLoginBinding
 import com.maxi.petzify.domain.model.LoginDataRequired
+import com.maxi.petzify.domain.usecase.GetLocalTokenUseCase
 import com.maxi.petzify.domain.usecase.LoginUseCase
 import com.maxi.petzify.ui.Formulario.Register.Register
-import com.maxi.petzify.ui.core.editTextVerify.VerifyEditText
+import com.maxi.petzify.ui.core.VerifyEditText
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -25,6 +26,7 @@ class Login : AppCompatActivity() {
 
     @Inject
     lateinit var loginUseCase: LoginUseCase
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -82,7 +84,7 @@ class Login : AppCompatActivity() {
 
     private fun NavigatorHome(token: String) {
         val intent = Intent(this, MainActivity::class.java)
-        intent.putExtra("token", token)
+        //intent.putExtra("token", token)
         startActivity(intent)
     }
 
