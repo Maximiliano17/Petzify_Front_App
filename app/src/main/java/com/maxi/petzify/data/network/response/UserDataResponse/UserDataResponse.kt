@@ -1,39 +1,30 @@
 package com.maxi.petzify.data.network.response.UserDataResponse
 
+
 import com.google.gson.annotations.SerializedName
 import com.maxi.petzify.domain.model.userData.UserData
 
 data class UserDataResponse(
-    @SerializedName("_id") val _id: String,
-    @SerializedName("banner") val banner: String,
-    @SerializedName("createdAt") val createdAt: String,
-    @SerializedName("email") val email: String,
-    @SerializedName("followers") val followers: List<Any>,
-    @SerializedName("following") val following: List<Any>,
-    @SerializedName("isVerified") val isVerified: Boolean,
-    @SerializedName("likes") val likes: List<Any>,
-    @SerializedName("password") val password: String,
-    @SerializedName("profile") val profile: String,
-    @SerializedName("role") val role: String,
-    @SerializedName("updatedAt") val updatedAt: String,
-    @SerializedName("username") val username: String,
-    @SerializedName("message") val message:String
-) {
+    @SerializedName("status")
+    val status: Int,
+    @SerializedName("user")
+    val user: User
+){
     fun toDomain(): UserData {
         return UserData(
-            _id = _id,
-            banner = banner,
-            createdAt = createdAt,
-            email = email,
-            followers = followers,
-            following = following,
-            isVerified = isVerified,
-            likes = likes,
-            password = password,
-            profile = profile,
-            role = role,
-            updatedAt = updatedAt,
-            username = username
+            _id = user.id,
+            banner = user.banner,
+            createdAt = user.createdAt,
+            email = user.email,
+            followers = user.followers,
+            following = user.following,
+            isVerified = user.isVerified,
+            likes = user.likes,
+            password = user.password,
+            profile = user.profile,
+            role = user.role,
+            updatedAt = user.updatedAt,
+            username = user.username
         )
     }
 }

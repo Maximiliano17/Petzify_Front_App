@@ -134,9 +134,7 @@ class Register : AppCompatActivity() {
 
 
     private fun NavigatorHome(token: String) {
-        Log.i("token", token)
         val intent = Intent(this, MainActivity::class.java)
-        //intent.putExtra("token", token)
         startActivity(intent)
     }
     private fun NavigatorLogin() = startActivity(Intent(this, Login::class.java))

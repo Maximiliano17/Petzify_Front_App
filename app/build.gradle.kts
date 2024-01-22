@@ -78,4 +78,6 @@ dependencies {
     implementation("com.google.dagger:hilt-android:${daggerVersion}")
     kapt("com.google.dagger:hilt-compiler:${daggerVersion}")
 
+    //picasso
+    implementation("com.squareup.picasso:picasso:2.8")
 }

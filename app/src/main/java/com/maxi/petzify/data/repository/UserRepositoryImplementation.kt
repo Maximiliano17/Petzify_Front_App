@@ -35,7 +35,10 @@ class UserRepositoryImplementation @Inject constructor(private val apiService: G
 
     override suspend fun getUserData(): UserData? {
         runCatching { apiService.getUserdata() }
-            .onSuccess { return it.toDomain() }
+            .onSuccess {
+                Log.i("recibido datos", it.toString())
+                return it.toDomain()
+            }
             .onFailure { Log.i("Error", "Ha ocurrido el siguiente error: ${it.message}") }
         return null
     }

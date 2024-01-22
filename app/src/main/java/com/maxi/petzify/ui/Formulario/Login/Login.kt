@@ -84,7 +84,6 @@ class Login : AppCompatActivity() {
 
     private fun NavigatorHome(token: String) {
         val intent = Intent(this, MainActivity::class.java)
-        //intent.putExtra("token", token)
         startActivity(intent)
     }
 

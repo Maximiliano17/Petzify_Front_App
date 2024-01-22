@@ -12,7 +12,7 @@
 
     <fragment
         android:id="@+id/navigation_perfil"
-        android:name="com.maxi.petzify.Views.Perfil"
+        android:name="com.maxi.petzify.Views.perfil.Perfil"
         tools:layout="@layout/fragment_perfil" />
 
     <fragment
