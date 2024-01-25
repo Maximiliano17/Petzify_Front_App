@@ -1,4 +1,4 @@
-package com.maxi.petzify.Views.perfil
+package com.maxi.petzify.Views.core.state
 
 import com.maxi.petzify.domain.model.userData.UserData
 

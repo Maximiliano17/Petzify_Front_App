@@ -10,7 +10,6 @@ import com.maxi.petzify.MainActivity
 import com.maxi.petzify.R
 import com.maxi.petzify.databinding.ActivityLoginBinding
 import com.maxi.petzify.domain.model.LoginDataRequired
-import com.maxi.petzify.domain.usecase.GetLocalTokenUseCase
 import com.maxi.petzify.domain.usecase.LoginUseCase
 import com.maxi.petzify.ui.Formulario.Register.Register
 import com.maxi.petzify.ui.core.VerifyEditText

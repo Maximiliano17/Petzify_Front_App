@@ -3,15 +3,15 @@ package com.maxi.petzify.data.repository
 import android.util.Log
 import com.maxi.petzify.Petzify.Companion.pref
 import com.maxi.petzify.data.network.GetUserApiService
-import com.maxi.petzify.domain.UserRepository
+import com.maxi.petzify.domain.ProfileRepository
 import com.maxi.petzify.domain.model.LoginDataRequired
 import com.maxi.petzify.domain.model.code.Code
 import com.maxi.petzify.domain.model.token.Token
 import com.maxi.petzify.domain.model.userData.UserData
 import javax.inject.Inject
 
-class UserRepositoryImplementation @Inject constructor(private val apiService: GetUserApiService) :
-    UserRepository {
+class ProfileRepositoryImplementation @Inject constructor(private val apiService: GetUserApiService) :
+    ProfileRepository {
     override suspend fun login(userData: LoginDataRequired): Token? {
         runCatching { apiService.login(userData) }
             .onSuccess {
@@ -36,7 +36,8 @@ class UserRepositoryImplementation @Inject constructor(private val apiService: G
     override suspend fun getUserData(): UserData? {
         runCatching { apiService.getUserdata() }
             .onSuccess {
-                Log.i("recibido datos", it.toString())
+                pref.saveData("username", it.user.username)
+                pref.saveData("userId", it.user.id)
                 return it.toDomain()
             }
             .onFailure { Log.i("Error", "Ha ocurrido el siguiente error: ${it.message}") }

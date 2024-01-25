@@ -17,7 +17,7 @@
 
     <fragment
         android:id="@+id/navigaton_posteos"
-        android:name="com.maxi.petzify.Views.Posteos"
+        android:name="com.maxi.petzify.Views.posteos.Posteos"
         tools:layout="@layout/fragment_posteos" />
 
     <fragment

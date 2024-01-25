@@ -2,7 +2,6 @@ package com.maxi.petzify.ui.Formulario.Register
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.WindowManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -13,7 +12,7 @@ import com.maxi.petzify.R
 import com.maxi.petzify.databinding.ActivityRegisterBinding
 import com.maxi.petzify.domain.model.LoginDataRequired
 import com.maxi.petzify.domain.model.code.Code
-import com.maxi.petzify.domain.usecase.GetLocalTokenUseCase
+import com.maxi.petzify.domain.usecase.GetLocalDataUseCase
 import com.maxi.petzify.domain.usecase.ReciveCodeUseCase
 import com.maxi.petzify.domain.usecase.RegisterUseCase
 import com.maxi.petzify.ui.core.VerifyEditText
@@ -35,7 +34,7 @@ class Register : AppCompatActivity() {
     lateinit var reciveCodeUseCase: ReciveCodeUseCase
 
     @Inject
-    lateinit var getLocalTokenUseCase: GetLocalTokenUseCase
+    lateinit var getLocalDataUseCase: GetLocalDataUseCase
 
     override fun onCreate(savedInstanceState: Bundle?) {
         val screenSplash = installSplashScreen()
@@ -59,7 +58,7 @@ class Register : AppCompatActivity() {
 
 
     private fun chekUserLogged() {
-        val token = getLocalTokenUseCase()
+        val token = getLocalDataUseCase.getLocalToken()
         if (token?.isNotEmpty() == true){
             NavigatorHome(token)
         }

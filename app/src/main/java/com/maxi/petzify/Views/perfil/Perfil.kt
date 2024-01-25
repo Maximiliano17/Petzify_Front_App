@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import com.maxi.petzify.Views.core.viewModels.UserDataViewModel
 import com.maxi.petzify.databinding.FragmentPerfilBinding
 import com.squareup.picasso.Picasso
 import dagger.hilt.android.AndroidEntryPoint
@@ -20,7 +21,7 @@ import kotlinx.coroutines.withContext
 @AndroidEntryPoint
 class Perfil : Fragment() {
 
-    private val perfilViewModel by viewModels<PerfilViewModel>()
+    private val userDataViewModel by viewModels<UserDataViewModel>()
     private var _binding: FragmentPerfilBinding? = null
     private val binding get() = _binding!!
 
@@ -43,7 +44,7 @@ class Perfil : Fragment() {
 
     private fun observePerfilDetail() {
         lifecycleScope.launch(Dispatchers.IO) {
-            perfilViewModel._userData.collectLatest { value ->
+            userDataViewModel._userData.collectLatest { value ->
                 withContext(Dispatchers.Main) {
                     if (value.isLoading) {
                         //TODO activar loadings o bones
@@ -67,4 +68,5 @@ class Perfil : Fragment() {
             }
         }
     }
+
 }
