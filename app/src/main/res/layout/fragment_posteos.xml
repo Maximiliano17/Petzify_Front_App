@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".Views.posteos.Posteos"
+    tools:context=".ui.posteos.Posteos"
     android:background="@color/white">
 
     <ImageView
@@ -110,14 +110,22 @@
         app:tint="@color/greenoscuro"/>
 
     <ImageView
-        android:id="@+id/sacarImg"
+        android:id="@+id/ivTakedPhotos"
         android:layout_width="70dp"
         android:layout_height="70dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/glMidBar"
         app:layout_constraintBottom_toBottomOf="@id/glBottomImg"
         app:layout_constraintTop_toBottomOf="@id/glTopImg"
-        android:background="@color/white"
+        />
+    <ImageView
+        android:id="@+id/btnCaptureImage"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/glMidBar"
+        app:layout_constraintBottom_toBottomOf="@id/glBottomImg"
+        app:layout_constraintTop_toBottomOf="@id/glTopImg"
         android:src="@drawable/ic_sacarfoto"
         app:tint="@color/greenoscuro"/>
 

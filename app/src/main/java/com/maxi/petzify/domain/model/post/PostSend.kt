@@ -5,5 +5,5 @@ data class PostToSend (
     val user: String?,
     val title: String,
     val desc: String,
-    val images: String
+    val image: String
 )

@@ -8,26 +8,41 @@
     <fragment
         android:id="@+id/navigation_home"
         android:name="com.maxi.petzify.ui.home.HomeFragment"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_perfil"
+            app:destination="@id/navigation_perfil" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_perfil"
-        android:name="com.maxi.petzify.Views.perfil.Perfil"
-        tools:layout="@layout/fragment_perfil" />
+        android:name="com.maxi.petzify.ui.perfil.Perfil"
+        tools:layout="@layout/fragment_perfil" >
+        <action
+            android:id="@+id/action_navigation_perfil_to_navigaton_posteos"
+            app:destination="@id/navigaton_posteos" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigaton_posteos"
-        android:name="com.maxi.petzify.Views.posteos.Posteos"
-        tools:layout="@layout/fragment_posteos" />
+        android:name="com.maxi.petzify.ui.posteos.Posteos"
+        tools:layout="@layout/fragment_posteos" >
+        <action
+            android:id="@+id/action_navigaton_posteos_to_navigation_home"
+            app:destination="@id/navigation_home" />
+        <action
+            android:id="@+id/action_navigaton_posteos_to_navigation_buscador"
+            app:destination="@id/navigation_buscador" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_notificaciones"
-        android:name="com.maxi.petzify.Views.Notificaciones"
+        android:name="com.maxi.petzify.ui.Notificaciones"
         tools:layout="@layout/fragment_notificaciones" />
 
     <fragment
         android:id="@+id/navigation_buscador"
-        android:name="com.maxi.petzify.Views.Buscador"
+        android:name="com.maxi.petzify.ui.Buscador"
         tools:layout="@layout/fragment_buscador" />
 
 </navigation>

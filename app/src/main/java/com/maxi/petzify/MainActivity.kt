@@ -29,26 +29,5 @@ class MainActivity : AppCompatActivity() {
         val navHost:NavHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment_activity_main) as NavHostFragment
         navigationController = navHost.navController
         binding.navView.setupWithNavController(navigationController)
-        /*
-
-        val navView: BottomNavigationView = binding.navView
-
-        val navController = findNavController(R.id.nav_host_fragment_activity_main)
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-        val appBarConfiguration = AppBarConfiguration(
-            setOf(
-                R.id.navigation_home,
-                R.id.navigation_perfil,
-                R.id.navigaton_posteos,
-                R.id.navigation_buscador,
-                R.id.navigation_notificaciones
-            )
-        )
-        setupActionBarWithNavController(navController, appBarConfiguration)
-        navView.setupWithNavController(navController)
-        *
-        *
-        * */
     }
 }

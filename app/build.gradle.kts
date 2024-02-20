@@ -34,6 +34,7 @@ android {
         getByName("debug"){
             isDebuggable = true
             buildConfigField("String", "BASE_URL", "\"http://10.0.2.2:5000/\"")
+            buildConfigField("String", "BASE_URL", "\"http://192.168.2.107:5000/\"")
         }
     }
     compileOptions {
@@ -80,4 +81,8 @@ dependencies {
 
     //picasso
     implementation("com.squareup.picasso:picasso:2.8")
+
+    //Logger
+    implementation("com.orhanobut:logger:2.2.0")
+
 }
